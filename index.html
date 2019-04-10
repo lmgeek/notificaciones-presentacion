@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/one.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Font Awesome icons-->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<img src="img/Notificaciones-Web-Push.jpg" alt="">
+					
+					<p><small>Presentación hecha con <a href="www.revealjs.com">Reveal.js</a></small></p>
+
+				</section>
+
+				<section>
+					<h2>¿Qué son?</h2>
+					<p class="fragment">Son mensajes instantáneos que el usuario recibe en sus dispositivos</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>Arquitectura</h2>
+					</section>
+					<section>
+						<h2>Service Worker</h2>
+						<img src="img/sw.jpg" class="fragment" alt="">
+					</section>
+					<section>
+						<h2>Ciclo de vida</h2>
+						<img src="img/ciclodevida.jpg" class="fragment" alt="">
+					</section>
+					<section>
+						<h2>Navegadores soportados</h2>
+						<h3>
+							<span class="fragment fade-up"><i class="fab fa-chrome"></i></span>
+						<span class="fragment fade-up"><i class="fab fa-firefox"></i></span>
+						<span class="fragment fade-up"><i class="fab fa-opera"></i></span>
+						<span class="fragment fade-up"><i class="fab fa-safari"></i></span>
+						<span class="fragment fade-up"><i class="fab fa-edge"></i></span></h3>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Beneficios</h2>
+						<ul>
+							<li class="fragment fade-up">Mejorar el Engagement</li>
+							<li class="fragment fade-up">Aumentar el ROI (Return On Investment)</li>
+							<li class="fragment fade-up">Retener y fidelizar al usuario</li>
+							<li class="fragment fade-up">No se quedan en la carpeta de spam, ni tampoco se acumulan en la carpeta principal</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Permiten envíos de:</h2>
+						<ul>
+							<li class="fragment fade-up">Novedades y promociones</li>
+							<li class="fragment fade-up">Información de utilidad</li>
+							<li class="fragment fade-up">Mantener el contacto con los públicos objetivo</li>
+							<li class="fragment fade-up">Permiten una comunicación directa</li>
+							<li class="fragment fade-up">Sirven como recordatorio para que los usuarios vuelvan a abrir tu app</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Recomendaciones</h2>
+						<ul>
+							<li class="fragment fade-up">Fija un objetivo (interacción, fidelidad, conversión)</li>
+							<li class="fragment fade-up">No ser insistente</li>
+							<li class="fragment fade-up"></li>
+							<li class="fragment fade-up">Si el usuario pincha en “No permitir”, es muy difícil que vuelvas a tener otra oportunidad para suscribirlo</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Diseño</h2>
+						<img src="img/web-push.jpg" alt="" class="fragment">
+						<p>Básica</p>
+					</section>
+					<section>
+						<img src="img/notification-ui.png" alt="" class="fragment" style="background-color:#FFFFFF;">
+						<p>Mas personalizadas</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>¿Cómo se implementa?</h2>
+						<p class="fragment">
+							Para poder hacer algo primero, es necesario suscribirse a las notificaciones haciendo click en el botón siguiente
+						</p>
+						<img src="" alt="">
+					</section>
+					<section>
+						<p>
+							Luego el navegador nos pide permisos para mostrar notificaciones, aceptamos
+						</p>
+						<img src="" alt="">
+						<pre><code data-trim data-noescape class="hljs javascript" style="word-wrap: break-word;text-align:justify;">
+							function registerServiceWorker(){
+								return navigator.serviceWorker.register('sw.js').then(function(swReg) {
+									swRegistration = swReg;
+									initialiseUI();
+								}).catch(function(error) {
+									console.error('Service Worker Error', error);
+								});
+							}
+						</code></pre>
+					</section>
+				</section>
+
+				<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
+					<h2>...AWESOME..!!!</h2>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
